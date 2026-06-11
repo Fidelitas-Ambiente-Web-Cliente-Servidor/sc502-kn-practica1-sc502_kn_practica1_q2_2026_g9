@@ -12,58 +12,126 @@
 
 <body>
 
-<nav class="navbar">
-    <div class="logo">
-        <h2>TechNova Academy</h2>
-    </div>
+    <!-- NAVBAR -->
+    <nav class="navbar">
 
-    <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="cursos.html">Cursos</a></li>
-        <li><a href="profesores.html">Profesores</a></li>
-        <li><a class="active" href="contacto.html">Contacto</a></li>
-    </ul>
-</nav>
+        <div class="logo">
+            <h2>TechNova Academy</h2>
+        </div>
 
-<section class="header-contacto">
-    <h1>Contáctanos</h1>
-    <p>Estamos listos para ayudarte.</p>
-</section>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cursos.html">Cursos</a></li>
+            <li><a href="profesores.html">Profesores</a></li>
+            <li><a class="active" href="contacto.html">Contacto</a></li>
+        </ul>
 
-<div class="contacto-container">
+    </nav>
 
-    <form>
-        <input type="text" placeholder="Nombre Completo">
-        <input type="email" placeholder="Correo Electrónico">
-        <input type="tel" placeholder="Teléfono">
-        <input type="text" placeholder="Asunto">
-        <textarea rows="5" placeholder="Mensaje"></textarea>
-        <button type="submit">Enviar</button>
-    </form>
+    <!-- ENCABEZADO -->
+    <section class="header-contacto">
 
-    <div class="info-contacto">
-        <h3>Información de Contacto</h3>
+        <h1>Contáctanos</h1>
 
-        <p>📍 San José, Costa Rica</p>
-        <p>📞 +506 2222-2222</p>
-        <p>✉ info@technovaacademy.com</p>
+        <p>
+            Estamos disponibles para responder tus consultas
+            sobre nuestros cursos y programas.
+        </p>
+
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="contacto-container">
+
+        <form id="formularioContacto">
+
+            <div class="campo">
+                <label>Nombre Completo</label>
+                <input type="text" id="nombre">
+                <small id="errorNombre"></small>
+            </div>
+
+            <div class="campo">
+                <label>Correo Electrónico</label>
+                <input type="email" id="correo">
+                <small id="errorCorreo"></small>
+            </div>
+
+            <div class="campo">
+                <label>Teléfono</label>
+                <input type="text" id="telefono">
+                <small id="errorTelefono"></small>
+            </div>
+
+            <div class="campo">
+                <label>Asunto</label>
+                <input type="text" id="asunto">
+                <small id="errorAsunto"></small>
+            </div>
+
+            <div class="campo">
+                <label>Mensaje</label>
+                <textarea id="mensaje" rows="5"></textarea>
+                <small id="errorMensaje"></small>
+            </div>
+
+            <button type="submit" id="btnEnviar" disabled>
+                Enviar Mensaje
+            </button>
+
+        </form>
+
+        <div id="mensajeExito"></div>
+
+    </section>
+
+    <!-- INFORMACIÓN -->
+    <section class="info-contacto">
+
+        <h2>Información de Contacto</h2>
+
+        <p><strong>Dirección:</strong> San José, Costa Rica</p>
+
+        <p><strong>Teléfono:</strong> +506 2222-3333</p>
+
+        <p><strong>Correo:</strong> info@technovaacademy.com</p>
+
+    </section>
+
+    <!-- MAPA -->
+    <section class="mapa">
 
         <iframe
-            src="https://maps.google.com/maps?q=San%20Jose%20Costa%20Rica&t=&z=13&ie=UTF8&iwloc=&output=embed">
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.741912760559!2d-84.090724!3d9.932543"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
         </iframe>
-    </div>
 
-</div>
+    </section>
 
-<footer>
-    <h3>TechNova Academy</h3>
-    <div class="social">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-    </div>
-    <p>Universidad Fidélitas - Ambiente Web Cliente Servidor</p>
-</footer>
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>TechNova Academy</h3>
+
+        <div class="social">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+        </div>
+
+        <p>
+            Desarrollado para Ambiente Web Cliente Servidor
+            - Universidad Fidélitas
+        </p>
+
+    </footer>
+
+    <script src="js/contacto.js"></script>
 
 </body>
+
 </html>

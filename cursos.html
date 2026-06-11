@@ -12,113 +12,79 @@
 
 <body>
 
-<nav class="navbar">
-    <div class="logo">
-        <h2>TechNova Academy</h2>
-    </div>
+    <!-- NAVBAR -->
+    <nav class="navbar">
 
-    <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a class="active" href="cursos.html">Cursos</a></li>
-        <li><a href="profesores.html">Profesores</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-</nav>
-
-<section class="header-cursos">
-    <h1>Catálogo de Cursos</h1>
-    <p>Descubre nuestros programas especializados.</p>
-</section>
-
-<div class="buscador">
-    <input type="text" placeholder="Buscar curso...">
-</div>
-
-<section class="categoria">
-    <h2>Desarrollo Web</h2>
-
-    <div class="cursos-grid">
-
-        <div class="card-curso">
-            <img src="img/curso1.jpg" alt="">
-            <div class="contenido">
-                <h3>HTML y CSS</h3>
-                <p>Categoría: Desarrollo Web</p>
-                <p>Duración: 6 semanas</p>
-                <p>Precio: $120</p>
-            </div>
+        <div class="logo">
+            <h2>TechNova Academy</h2>
         </div>
 
-        <div class="card-curso">
-            <img src="img/curso2.jpg" alt="">
-            <div class="contenido">
-                <h3>JavaScript Moderno</h3>
-                <p>Categoría: Desarrollo Web</p>
-                <p>Duración: 8 semanas</p>
-                <p>Precio: $150</p>
-            </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a class="active" href="cursos.html">Cursos</a></li>
+            <li><a href="profesores.html">Profesores</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- ENCABEZADO -->
+    <section class="header-cursos">
+
+        <h1>Catálogo de Cursos</h1>
+
+        <p>
+            Explora nuestros cursos especializados en tecnología
+            y desarrollo profesional.
+        </p>
+
+    </section>
+
+    <!-- FILTROS -->
+    <section class="filtros">
+
+        <input
+            type="text"
+            id="buscarCurso"
+            placeholder="Buscar curso..."
+        >
+
+        <select id="filtroCategoria">
+            <option value="Todos">Todas las categorías</option>
+            <option value="Web">Desarrollo Web</option>
+            <option value="IA">Inteligencia Artificial</option>
+            <option value="Seguridad">Ciberseguridad</option>
+        </select>
+
+    </section>
+
+    <!-- CURSOS DINÁMICOS -->
+    <section>
+
+        <div id="listaCursos" class="cursos-grid"></div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>TechNova Academy</h3>
+
+        <div class="social">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
         </div>
 
-        <div class="card-curso">
-            <img src="img/curso3.jpg" alt="">
-            <div class="contenido">
-                <h3>React Básico</h3>
-                <p>Categoría: Desarrollo Web</p>
-                <p>Duración: 10 semanas</p>
-                <p>Precio: $180</p>
-            </div>
-        </div>
+        <p>
+            Desarrollado para Ambiente Web Cliente Servidor
+            - Universidad Fidélitas
+        </p>
 
-    </div>
-</section>
+    </footer>
 
-<section class="categoria">
-    <h2>Tecnologías Avanzadas</h2>
-
-    <div class="cursos-grid">
-
-        <div class="card-curso">
-            <img src="img/curso4.jpg" alt="">
-            <div class="contenido">
-                <h3>Python para IA</h3>
-                <p>Categoría: Inteligencia Artificial</p>
-                <p>Duración: 8 semanas</p>
-                <p>Precio: $200</p>
-            </div>
-        </div>
-
-        <div class="card-curso">
-            <img src="img/curso5.jpg" alt="">
-            <div class="contenido">
-                <h3>Machine Learning</h3>
-                <p>Categoría: Inteligencia Artificial</p>
-                <p>Duración: 12 semanas</p>
-                <p>Precio: $250</p>
-            </div>
-        </div>
-
-        <div class="card-curso">
-            <img src="img/curso6.jpg" alt="">
-            <div class="contenido">
-                <h3>Ciberseguridad</h3>
-                <p>Categoría: Seguridad</p>
-                <p>Duración: 10 semanas</p>
-                <p>Precio: $220</p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    <h3>TechNova Academy</h3>
-    <div class="social">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-    </div>
-    <p>Universidad Fidélitas - Ambiente Web Cliente Servidor</p>
-</footer>
+    <script src="js/cursos.js"></script>
 
 </body>
+
 </html>

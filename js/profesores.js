@@ -1,217 +1,126 @@
-let nombre = "Karol";
-let edad = 26;
-let estatura = 1.60;
-let esProfesor = true;
-let listaHobbies = ["leer", "escuchar musica", "fotografia"];
-let objetoPersona = {
-    nombre: "Karol",
-    apellido: "Leal",
-    edad: 36,
-    altura: 1.60,
-    esProfesor: true
-}; // json
+// =========================
+// PROFESORES
+// =========================
 
-console.log(nombre);
-console.log(edad);
-console.log(estatura);
-console.log(listaHobbies);
-console.log(objetoPersona);
-
-//lista de hobbies quiero imprimir la posicion 2
-console.log(listaHobbies[2])
-// objeto quiero acceder a un dato especifico es con .
-console.log(objetoPersona.apellido)
-
-// let y var
-
-
-//let nombreEstudiante  = "Laura";
-//let nombreEstudiante  = "Maria";
-
-//console.log(nombreEstudiante);
-//let nombreEstudiante = "Laura";
-let numero = 80;
-if (true) {
-    let numero = 10; //local
-    console.log(numero); // salida:10
+const profesores = [
+{
+    nombre: "Ana Rodríguez",
+    especialidad: "Desarrollo Web",
+    descripcion: "Especialista Full Stack con más de 10 años de experiencia en desarrollo web y aplicaciones empresariales.",
+    foto: "img/profesor1.jpg",
+    correo: "ana@technova.com",
+    cursosQueImparte: "HTML, CSS, JavaScript y React"
+},
+{
+    nombre: "Carlos Méndez",
+    especialidad: "Inteligencia Artificial",
+    descripcion: "Experto en Machine Learning, Deep Learning y análisis de datos para empresas.",
+    foto: "img/profesor2.jpg",
+    correo: "carlos@technova.com",
+    cursosQueImparte: "Python para IA y Machine Learning"
+},
+{
+    nombre: "Laura Vargas",
+    especialidad: "UX/UI Design",
+    descripcion: "Diseñadora especializada en experiencia de usuario e interfaces modernas.",
+    foto: "img/profesor3.jpg",
+    correo: "laura@technova.com",
+    cursosQueImparte: "UX Design y Figma"
+},
+{
+    nombre: "Andrés Gómez",
+    especialidad: "Ciberseguridad",
+    descripcion: "Consultor en seguridad informática y protección de infraestructuras tecnológicas.",
+    foto: "img/profesor4.jpg",
+    correo: "andres@technova.com",
+    cursosQueImparte: "Ciberseguridad y Ethical Hacking"
 }
-//let numero = 20; // global
-console.log(numero); // salida: 80
+];
 
-console.log("////////////////-----------------------------////////////")
-console.log(nombre.length);
-console.log(nombre.toUpperCase())
-console.log(estatura.toFixed(8))
-console.log(esProfesor.toString())
-console.log("////////////////-----------------------------////////////")
+// =========================
+// CONTENEDOR
+// =========================
 
-const edadMayor = 18;
+const listaProfesores = document.getElementById("listaProfesores");
 
-let mensaje = "";
-if (edad >= edadMayor) {
-    mensaje = "Es mayor de edad";
-} else {
-    mensaje = "Es menor de edad";
-}
-console.log(mensaje);
+// =========================
+// CREAR TARJETAS
+// =========================
 
-edad = 10;
+profesores.forEach((profesor, index) => {
 
-mensaje = (edad >= edadMayor) ? "Es mayor de edad" : "Es menor de edad";
-console.log(mensaje);
+    const card = document.createElement("div");
+    card.classList.add("card-profesor");
 
-console.log("////////////////-----------------------------////////////")
+    // data-* requerido por el profesor
+    card.dataset.id = index;
 
-let semaforo = "verde";
+    card.innerHTML = `
+        <img src="${profesor.foto}" alt="${profesor.nombre}">
+        <h3>${profesor.nombre}</h3>
+        <p>${profesor.especialidad}</p>
+    `;
 
-if (semaforo == "verde") {
-    console.log("Siga!");
-} else if (semaforo == "amarillo") {
-    console.log("Cuidado!");// cuando ya hay un 3 de esta forma lo mejor es usar switch
-} else if (semaforo == "rojo") {
-    console.log("Detengase!")
-} else {
-    console.log("Color no validado!");
-}
+    listaProfesores.appendChild(card);
 
-switch (semaforo) {
-    case 'verde':
-        console.log("Siga!");
-        break;
-    case 'amarillo':
-        console.log("Cuidado!");
-        break;
-    case 'rojo':
-        console.log("Detengase!")
-        break;
-    default:
-        console.log("Color no validado!");
-        break;
-}
+});
 
-// for; ya se cuantas veces voy repetir
-for (let i = 0; i <= 10; i++) {
-    console.log(i);
+// =========================
+// MODAL
+// =========================
 
-}
+const modal = document.getElementById("modalProfesor");
+const cerrarModal = document.getElementById("cerrarModal");
 
-for (let i = 10; i > 0; i--) {
-    console.log(i);
+const modalFoto = document.getElementById("modalFoto");
+const modalNombre = document.getElementById("modalNombre");
+const modalEspecialidad = document.getElementById("modalEspecialidad");
+const modalDescripcion = document.getElementById("modalDescripcion");
+const modalCorreo = document.getElementById("modalCorreo");
+const modalCursos = document.getElementById("modalCursos");
 
-}
+// =========================
+// ABRIR MODAL
+// =========================
 
-for (let i = 0; i < listaHobbies.length; i++) {
+document.addEventListener("click", function(event){
 
-    console.log(listaHobbies[i]);
-}
+    const tarjeta = event.target.closest(".card-profesor");
 
-for (let i in listaHobbies) {
-    console.log(listaHobbies[i]);
-}
+    if(!tarjeta) return;
 
-edad = 10;
-//do primero hace y luego pregunta edad =11 entonces sale de la condicion
-do {
-    edad++;
-    console.log(edad);
-    console.log("DOWHILE");
-} while (edad < 10)
-//while primeropregunta edad =11 entonces no entra 
-while (edad < 11) {
-    edad++;
-    console.log(edad);
-    console.log("WHILE");
-}
+    const id = tarjeta.dataset.id;
+    const profesor = profesores[id];
 
-// parametros
-function sumar(num1, num2) {
-    // returnar valores
-    return num1 + num2;
-}
+    modalFoto.src = profesor.foto;
+    modalFoto.alt = profesor.nombre;
 
-function saludar() {
-    console.log("Hola!");
-}
+    modalNombre.textContent = profesor.nombre;
+    modalEspecialidad.textContent = profesor.especialidad;
+    modalDescripcion.textContent = profesor.descripcion;
+    modalCorreo.textContent = "Correo: " + profesor.correo;
+    modalCursos.textContent = "Cursos que imparte: " + profesor.cursosQueImparte;
 
-let total_suma = sumar(34, 5);
-console.log(total_suma);
+    modal.style.display = "flex";
 
-saludar();
+});
 
+// =========================
+// CERRAR MODAL CON X
+// =========================
 
+cerrarModal.addEventListener("click", () => {
+    modal.style.display = "none";
+});
 
-document.addEventListener("DOMContentLoaded", function () {
-    // seleccionar por id
-    let txtInputTarea = document.querySelector("#tarea");
-    let txtClass = document.querySelectorAll(".grupoClase");
-    console.log(txtClass);
-    let selectH2 = document.querySelectorAll("h2");
-    console.log(selectH2);
+// =========================
+// CERRAR MODAL FUERA
+// =========================
 
+window.addEventListener("click", (event) => {
 
-
-
-    selectH2.forEach(element => {
-        element.innerText = "Nuevo h2";
-    });
-
-    let nuevaImagen = document.createElement("img");
-    nuevaImagen.src = "./images/banner.jpg";
-    nuevaImagen.width = "100";
-
-    let sectionPrincipal = document.getElementById("principal");
-    sectionPrincipal.appendChild(nuevaImagen);
-
-    let btnAgregar = document.getElementById("btnAgregar");
-    let contador = 2;
-    let listaTareas = document.getElementById("listaTareas");
-    btnAgregar.addEventListener("click", function () {
-        let txtTarea = document.getElementById("tarea");
-
-        if (txtTarea.value != "") {
-            txtTarea.style.borderColor = "black";
-
-            let nuevoLi = document.createElement("li");
-            nuevoLi.innerText = txtTarea.value;
-            console.log(contador);
-            nuevoLi.dataset.id = contador++;
-            listaTareas.appendChild(nuevoLi);
-            mostrarMensaje(2);
-            txtTarea.value = "";
-        } else {
-            mostrarMensaje(1);
-            txtTarea.style.borderColor = "red";
-        }
-
-    })
-
-    nuevaImagen.addEventListener("mouseover", function () {
-        console.log("mouse over")
-    })
-
-    function mostrarMensaje(opcion) {
-        let mensaje = document.getElementById("mensaje");
-        switch (opcion) {
-            case 1:
-                mensaje.innerText = "Campo obligatorio";
-                break;
-            case 2:
-                mensaje.innerText = "Tarea agregada correctamente!";
-                break;
-        }
-
-
-        setTimeout(() => {
-            mensaje.innerText = "";
-        }, 2000);
-
+    if(event.target === modal){
+        modal.style.display = "none";
     }
-
-    listaTareas.addEventListener("click", function (event) {
-        const id = event.target.dataset.id;
-        const tarea = event.target.innerText;
-
-        console.log(`ID: ${id} - Tarea: ${tarea}`);
-    });
 
 });

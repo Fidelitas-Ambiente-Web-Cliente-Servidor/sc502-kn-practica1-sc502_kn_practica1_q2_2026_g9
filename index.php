@@ -1,102 +1,129 @@
-<!DOCTYPE html>
+<?php
 
-<html lang="es">
+require_once "config/database.php";
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechNova Academy - Inicio</title>
 
-```
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/index.css">
-```
+class IndexModel{
 
-</head>
 
-<body>
+    private $db;
 
-```
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="logo">
-        <h2>TechNova Academy</h2>
-    </div>
 
-    <ul class="nav-links">
-        <li><a class="active" href="index.html">Inicio</a></li>
-        <li><a href="cursos.html">Cursos</a></li>
-        <li><a href="profesores.html">Profesores</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-</nav>
+    public function __construct(){
 
-<!-- HERO -->
-<section class="hero">
-    <h1>TechNova Academy</h1>
-    <p>Impulsando el talento digital del futuro.</p>
-    <a href="cursos.html" class="btn">Explorar Cursos</a>
-</section>
+        $this->db = Database::connect();
 
-<!-- CURSOS DESTACADOS -->
-<section class="destacados">
-    <h2>Cursos Destacados</h2>
+    }
 
-    <div id="contenedorCursos" class="cards"></div>
-</section>
 
-<!-- ESTADÍSTICAS -->
-<section class="estadisticas">
 
-    <div class="estadistica">
-        <h3>5000+</h3>
-        <p>Estudiantes</p>
-    </div>
+    // READ
 
-    <div class="estadistica">
-        <h3>30</h3>
-        <p>Profesores</p>
-    </div>
+    public function getAll(){
 
-    <div class="estadistica">
-        <h3>50</h3>
-        <p>Cursos</p>
-    </div>
+        $sql = "SELECT * FROM cursos_destacados";
 
-</section>
+        $stmt = $this->db->prepare($sql);
 
-<!-- TESTIMONIOS -->
-<section class="testimonios">
+        $stmt->execute();
 
-    <h2>Testimonios</h2>
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    <div class="testimonio">
-        <p>"Gracias a TechNova conseguí mi primer empleo como desarrollador web."</p>
-        <strong>- María Rodríguez</strong>
-    </div>
+    }
 
-    <div class="testimonio">
-        <p>"Los cursos son prácticos y los profesores tienen mucha experiencia."</p>
-        <strong>- Carlos Gómez</strong>
-    </div>
 
-</section>
 
-<!-- FOOTER -->
-<footer>
-    <h3>TechNova Academy</h3>
+    // CREATE
 
-    <div class="social">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-    </div>
+    public function create($nombre,$descripcion,$imagen,$categoria){
 
-    <p>Desarrollado para Ambiente Web Cliente Servidor - Universidad Fidélitas</p>
-</footer>
 
-<script src="js/index.js"></script>
+        $sql="INSERT INTO cursos_destacados
+        (nombre,descripcion,imagen,categoria)
+        VALUES
+        (?,?,?,?)";
 
-</body>
-</html>
 
+        $stmt=$this->db->prepare($sql);
+
+
+        return $stmt->execute([
+            $nombre,
+            $descripcion,
+            $imagen,
+            $categoria
+        ]);
+
+    }
+
+
+
+    // DELETE
+
+    public function delete($id){
+
+
+        $sql="DELETE FROM cursos_destacados WHERE id=?";
+
+
+        $stmt=$this->db->prepare($sql);
+
+
+        return $stmt->execute([$id]);
+
+    }
+
+
+
+    // BUSCAR UNO
+
+    public function getById($id){
+
+
+        $sql="SELECT * FROM cursos_destacados WHERE id=?";
+
+
+        $stmt=$this->db->prepare($sql);
+
+
+        $stmt->execute([$id]);
+
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+
+    }
+
+
+
+    // UPDATE
+
+    public function update($id,$nombre,$descripcion,$imagen,$categoria){
+
+
+        $sql="UPDATE cursos_destacados SET
+
+        nombre=?,
+        descripcion=?,
+        imagen=?,
+        categoria=?
+
+        WHERE id=?";
+
+
+        $stmt=$this->db->prepare($sql);
+
+
+        return $stmt->execute([
+            $nombre,
+            $descripcion,
+            $imagen,
+            $categoria,
+            $id
+        ]);
+
+    }
+
+
+}
+
+?>

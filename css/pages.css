@@ -1,0 +1,34 @@
+/* INDEX */
+
+.hero{
+    height:450px;
+}
+
+
+.estadisticas{
+    display:flex;
+}
+
+
+
+/* CURSOS */
+
+.filtro-cursos{
+    margin:30px;
+}
+
+
+
+/* PROFESORES */
+
+.perfil-profesor{
+    text-align:center;
+}
+
+
+
+/* CONTACTO */
+
+.form-contacto{
+    width:600px;
+}

@@ -3,12 +3,13 @@ Agregar Curso Destacado
 </h2>
 
 
-<form method="POST" 
+
+<form method="POST"
 action="index.php?controller=index&action=store">
 
 
 <label>
-Nombre:
+Nombre del curso
 </label>
 
 <input type="text" name="nombre" required>
@@ -16,7 +17,7 @@ Nombre:
 
 
 <label>
-Descripción:
+Descripción
 </label>
 
 <textarea name="descripcion" required></textarea>
@@ -24,21 +25,19 @@ Descripción:
 
 
 <label>
-Imagen:
+Imagen
 </label>
 
-<input type="text" 
-name="imagen"
-placeholder="img/web.jpg">
+<input type="text" name="imagen"
+placeholder="img/php.jpg">
 
 
 
 <label>
-Categoría:
+Categoría
 </label>
 
-<input type="text" 
-name="categoria">
+<input type="text" name="categoria">
 
 
 

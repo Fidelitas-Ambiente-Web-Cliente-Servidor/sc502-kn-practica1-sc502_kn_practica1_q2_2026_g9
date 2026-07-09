@@ -1,23 +1,52 @@
 /* INDEX */
 
 .hero{
-    height:450px;
+    background:linear-gradient(135deg,#0A192F,#1B4D89);
+    color:white;
+    min-height:450px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:40px;
 }
 
+.hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.2rem;
+}
 
 .estadisticas{
     display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin:60px auto;
 }
 
-
+.estadistica{
+    width:220px;
+    padding:25px;
+    border-radius:12px;
+    background:white;
+    box-shadow:0 5px 12px rgba(0,0,0,.15);
+    text-align:center;
+}
 
 /* CURSOS */
 
 .filtro-cursos{
-    margin:30px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin:40px;
+    flex-wrap:wrap;
 }
-
-
 
 /* PROFESORES */
 
@@ -25,10 +54,17 @@
     text-align:center;
 }
 
-
+.perfil-profesor img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+}
 
 /* CONTACTO */
 
 .form-contacto{
-    width:600px;
+    width:100%;
+    max-width:700px;
+    margin:40px auto;
 }

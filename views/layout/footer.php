@@ -31,7 +31,7 @@ Desarrollado para Ambiente Web Cliente Servidor - Universidad Fidélitas
 </footer>
 
 
-<script src="js/index.js"></script>
+<script src="js/index.js?v=<?= time(); ?>"></script>
 
 
 </body>

@@ -1,90 +1,130 @@
-<!DOCTYPE html>
-<html lang="es">
+<section class="header-cursos">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos - TechNova Academy</title>
+    <h1>Catálogo de Cursos</h1>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cursos.css">
-</head>
+    <p>
+        Explora nuestros cursos especializados en tecnología y desarrollo profesional.
+    </p>
 
-<body>
+</section>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
+<section class="filtros">
 
-        <div class="logo">
-            <h2>TechNova Academy</h2>
-        </div>
+    <input
+        type="text"
+        id="buscarCurso"
+        placeholder="🔍 Buscar curso...">
 
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a class="active" href="cursos.html">Cursos</a></li>
-            <li><a href="profesores.html">Profesores</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
+    <select id="filtroCategoria">
 
-    </nav>
+        <option value="">Todas las categorías</option>
 
-    <!-- ENCABEZADO -->
-    <section class="header-cursos">
+        <option value="Programación">Programación</option>
 
-        <h1>Catálogo de Cursos</h1>
+        <option value="Bases de Datos">Bases de Datos</option>
 
-        <p>
-            Explora nuestros cursos especializados en tecnología
-            y desarrollo profesional.
-        </p>
+        <option value="Diseño">Diseño</option>
 
-    </section>
+        <option value="Redes">Redes</option>
 
-    <!-- FILTROS -->
-    <section class="filtros">
+        <option value="Seguridad">Seguridad</option>
 
-        <input
-            type="text"
-            id="buscarCurso"
-            placeholder="Buscar curso..."
-        >
+    </select>
 
-        <select id="filtroCategoria">
-            <option value="Todos">Todas las categorías</option>
-            <option value="Web">Desarrollo Web</option>
-            <option value="IA">Inteligencia Artificial</option>
-            <option value="Seguridad">Ciberseguridad</option>
-        </select>
+</section>
 
-    </section>
+<section class="contenedor-cursos">
 
-    <!-- CURSOS DINÁMICOS -->
-    <section>
+    <div id="listaCursos" class="cards">
 
-        <div id="listaCursos" class="cursos-grid"></div>
+        <?php if(!empty($cursos)): ?>
 
-    </section>
+            <?php foreach($cursos as $curso): ?>
 
-    <!-- FOOTER -->
-    <footer>
+                <div class="card">
 
-        <h3>TechNova Academy</h3>
+                    <img
+                        src="img/curso/<?= htmlspecialchars($curso['imagen']); ?>"
+                        alt="<?= htmlspecialchars($curso['nombre']); ?>">
 
-        <div class="social">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-        </div>
+                    <div class="card-body">
 
-        <p>
-            Desarrollado para Ambiente Web Cliente Servidor
-            - Universidad Fidélitas
-        </p>
+                        <h3>
+                            <?= htmlspecialchars($curso['nombre']); ?>
+                        </h3>
 
-    </footer>
+                        <p>
+                            <?= htmlspecialchars($curso['descripcion']); ?>
+                        </p>
 
-    <script src="js/cursos.js"></script>
+                        <p>
+                            <strong>Categoría:</strong>
+                            <?= htmlspecialchars($curso['categoria']); ?>
+                        </p>
 
-</body>
+                        <?php if(isset($curso['duracion'])): ?>
 
-</html>
+                            <p>
+
+                                <strong>Duración:</strong>
+
+                                <?= htmlspecialchars($curso['duracion']); ?>
+
+                            </p>
+
+                        <?php endif; ?>
+
+                        <?php if(isset($curso['precio'])): ?>
+
+                            <p>
+
+                                <strong>Precio:</strong>
+
+                                ₡<?= htmlspecialchars($curso['precio']); ?>
+
+                            </p>
+
+                        <?php endif; ?>
+
+                        <div style="margin-top:20px;">
+
+                            <a
+                                class="btn-edit"
+                                href="index.php?controller=index&action=edit&id=<?= $curso['id']; ?>">
+
+                                Editar
+
+                            </a>
+
+                            <a
+                                class="btn-delete"
+                                href="index.php?controller=index&action=delete&id=<?= $curso['id']; ?>"
+                                onclick="return confirm('¿Eliminar este curso?');">
+
+                                Eliminar
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <?php endforeach; ?>
+
+        <?php else: ?>
+
+            <h2 style="text-align:center; width:100%;">
+
+                No hay cursos registrados.
+
+            </h2>
+
+        <?php endif; ?>
+
+    </div>
+
+</section>
+
+<script src="js/cursos.js?v=<?= time(); ?>"></script>

@@ -8,17 +8,15 @@ class Database
 
     // Datos de conexión Docker MySQL
     private $host = "db";
-    private $database = "appdb";
+    private $database = "TechNova";
     private $username = "appuser";
     private $password = "apppass";
-
 
 
     private function __construct()
     {
 
     }
-
 
 
     public static function connect()
@@ -32,7 +30,7 @@ class Database
 
                 self::$instance = new PDO(
 
-                    "mysql:host=db;dbname=appdb;charset=utf8",
+                    "mysql:host=db;dbname=TechNova;charset=utf8",
 
                     "appuser",
 

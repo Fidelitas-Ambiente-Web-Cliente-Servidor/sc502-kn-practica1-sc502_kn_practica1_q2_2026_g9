@@ -6,7 +6,7 @@ TechNova Academy
 </h3>
 
 
-<div class="social">
+<div class="redes">
 
 <a href="#">
 Facebook

@@ -5,7 +5,8 @@ Agregar Curso Destacado
 
 
 <form method="POST"
-action="index.php?controller=index&action=store">
+action="index.php?controller=index&action=store"
+enctype="multipart/form-data">
 
 
 <label>
@@ -28,8 +29,10 @@ Descripción
 Imagen
 </label>
 
-<input type="text" name="imagen"
-placeholder="img/php.jpg">
+<input
+type="file"
+name="imagen"
+accept=".jpg,.jpeg,.png">
 
 
 

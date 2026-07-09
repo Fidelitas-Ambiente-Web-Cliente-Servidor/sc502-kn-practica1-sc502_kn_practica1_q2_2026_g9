@@ -1,76 +1,68 @@
 <section class="hero">
 
-<h1>
-TechNova Academy
-</h1>
+    <h1>TechNova Academy</h1>
 
-<p>
-Impulsando el talento digital del futuro.
-</p>
+    <p>
+        Impulsando el talento digital del futuro.
+    </p>
 
-<a href="index.php?controller=index&action=create" class="btn">
-Agregar Curso
-</a>
+    <a href="index.php?controller=index&action=create" class="btn">
+        Agregar Curso
+    </a>
 
 </section>
 
-
-
 <section class="destacados">
 
-<h2>
-Cursos Destacados
-</h2>
+    <h2>Cursos Destacados</h2>
 
+    <div class="cards">
 
-<div class="cards">
+        <?php if(!empty($cursos)): ?>
 
+            <?php foreach($cursos as $curso): ?>
 
-<?php foreach($cursos as $curso): ?>
+                <div class="card">
 
+                    <img
+                        src="img/curso/<?= htmlspecialchars($curso['imagen']); ?>"
+                        alt="<?= htmlspecialchars($curso['nombre']); ?>">
 
-<div class="card">
+                    <h3>
+                        <?= htmlspecialchars($curso['nombre']); ?>
+                    </h3>
 
+                    <p>
+                        <?= htmlspecialchars($curso['descripcion']); ?>
+                    </p>
 
-<img src="<?= $curso['imagen']; ?>">
+                    <span>
+                        <?= htmlspecialchars($curso['categoria']); ?>
+                    </span>
 
+                    <br><br>
 
-<h3>
-<?= $curso['nombre']; ?>
-</h3>
+                    <a href="index.php?controller=index&action=edit&id=<?= $curso['id']; ?>">
+                        Editar
+                    </a>
 
+                    |
 
-<p>
-<?= $curso['descripcion']; ?>
-</p>
+                    <a href="index.php?controller=index&action=delete&id=<?= $curso['id']; ?>"
+                       onclick="return confirm('¿Eliminar curso?');">
+                        Eliminar
+                    </a>
 
+                </div>
 
-<span>
-<?= $curso['categoria']; ?>
-</span>
+            <?php endforeach; ?>
 
+        <?php else: ?>
 
-<br><br>
+            <p>No hay cursos registrados.</p>
 
+        <?php endif; ?>
 
-<a href="index.php?controller=index&action=edit&id=<?= $curso['id']; ?>">
-Editar
-</a>
-
-
-<a href="index.php?controller=index&action=delete&id=<?= $curso['id']; ?>"
-onclick="return confirm('¿Eliminar curso?')">
-Eliminar
-</a>
-
-
-</div>
-
-
-<?php endforeach; ?>
-
-
-</div>
-
+    </div>
 
 </section>

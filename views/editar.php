@@ -5,7 +5,8 @@ Editar Curso
 
 
 <form method="POST"
-action="index.php?controller=index&action=update">
+action="index.php?controller=index&action=update"
+enctype="multipart/form-data">
 
 
 <input type="hidden"
@@ -38,13 +39,31 @@ Descripción
 
 
 <label>
-Imagen
+Imagen actual
 </label>
 
+<br>
 
-<input type="text"
+<img
+src="img/curso/<?= htmlspecialchars($curso['imagen']); ?>"
+width="180"
+alt="Imagen del curso">
+
+<br><br>
+
+<input
+type="hidden"
+name="imagen_actual"
+value="<?= htmlspecialchars($curso['imagen']); ?>">
+
+<label>
+Seleccionar nueva imagen (opcional)
+</label>
+
+<input
+type="file"
 name="imagen"
-value="<?= $curso['imagen']; ?>">
+accept=".jpg,.jpeg,.png">
 
 
 

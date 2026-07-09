@@ -11,10 +11,9 @@
 <title>TechNova Academy</title>
 
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=5">
 
-<link rel="stylesheet" href="css/pages.css">
-
+<link rel="stylesheet" href="css/pages.css?v=5">
 
 </head>
 

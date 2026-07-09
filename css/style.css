@@ -213,40 +213,42 @@ button:hover{
     background:#12345d;
 }
 
-/* ==========================
-   FOOTER
-========================== */
+/*==========================
+   FOOTER 
+==========================*/
+
 footer{
-    margin-top:60px;
     background:#0A192F;
-    color:#fff;
+    color:#FFFFFF;
     text-align:center;
     padding:35px 20px;
 }
 
 footer h3{
-    margin-bottom:15px;
+    color:#FFFFFF !important;
+    font-size:30px;
 }
 
-.social{
+footer p{
+    color:#DDDDDD !important;
+    font-size:16px;
+}
+
+footer .social{
     display:flex;
     justify-content:center;
     gap:20px;
     margin:20px 0;
 }
 
-.social a{
-    color:#64FFDA;
+footer .social a{
+    color:#64FFDA !important;
     text-decoration:none;
     font-weight:bold;
 }
 
-.social a:hover{
-    color:#fff;
-}
-
-footer p{
-    color:#ddd;
+footer .social a:hover{
+    color:#FFFFFF !important;
 }
 
 /* ==========================

@@ -1,3 +1,5 @@
+<?php require_once "views/layout/header.php"; ?>
+
 <section class="hero">
 
     <h1>TechNova Academy</h1>
@@ -7,7 +9,7 @@
     </p>
 
     <a href="index.php?controller=index&action=create" class="btn">
-        Agregar Curso
+        ➕ Agregar Curso
     </a>
 
 </section>
@@ -28,30 +30,42 @@
                         src="img/curso/<?= htmlspecialchars($curso['imagen']); ?>"
                         alt="<?= htmlspecialchars($curso['nombre']); ?>">
 
-                    <h3>
-                        <?= htmlspecialchars($curso['nombre']); ?>
-                    </h3>
+                    <div class="card-body">
 
-                    <p>
-                        <?= htmlspecialchars($curso['descripcion']); ?>
-                    </p>
+                        <h3>
+                            <?= htmlspecialchars($curso['nombre']); ?>
+                        </h3>
 
-                    <span>
-                        <?= htmlspecialchars($curso['categoria']); ?>
-                    </span>
+                        <p>
+                            <?= htmlspecialchars($curso['descripcion']); ?>
+                        </p>
 
-                    <br><br>
+                        <span>
+                            <?= htmlspecialchars($curso['categoria']); ?>
+                        </span>
 
-                    <a href="index.php?controller=index&action=edit&id=<?= $curso['id']; ?>">
-                        Editar
-                    </a>
+                        <div class="acciones">
 
-                    |
+                            <a
+                                href="index.php?controller=index&action=edit&id=<?= $curso['id']; ?>"
+                                class="btn-edit">
 
-                    <a href="index.php?controller=index&action=delete&id=<?= $curso['id']; ?>"
-                       onclick="return confirm('¿Eliminar curso?');">
-                        Eliminar
-                    </a>
+                                ✏️ Editar
+
+                            </a>
+
+                            <a
+                                href="index.php?controller=index&action=delete&id=<?= $curso['id']; ?>"
+                                class="btn-delete"
+                                onclick="return confirm('¿Está seguro de eliminar este curso?');">
+
+                                🗑 Eliminar
+
+                            </a>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -59,10 +73,14 @@
 
         <?php else: ?>
 
-            <p>No hay cursos registrados.</p>
+            <h3 style="text-align:center;">
+                No hay cursos registrados.
+            </h3>
 
         <?php endif; ?>
 
     </div>
 
 </section>
+
+<?php require_once "views/layout/footer.php"; ?>

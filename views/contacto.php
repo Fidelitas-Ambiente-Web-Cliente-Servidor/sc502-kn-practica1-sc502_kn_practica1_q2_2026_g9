@@ -1,137 +1,118 @@
-<!DOCTYPE html>
-<html lang="es">
+<?php require_once "views/layout/header.php"; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - TechNova Academy</title>
+<section class="header-contacto">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/contacto.css">
-</head>
+    <h1>Contáctanos</h1>
 
-<body>
+    <p>
+        Estamos disponibles para responder tus consultas
+        sobre nuestros cursos y programas.
+    </p>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
+</section>
 
-        <div class="logo">
-            <h2>TechNova Academy</h2>
+<section class="contacto-container">
+
+    <form method="POST"
+          action="index.php?controller=contacto&action=store">
+
+        <div class="campo">
+            <label>Nombre Completo</label>
+            <input type="text" name="nombre" required>
         </div>
 
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
-            <li><a href="profesores.html">Profesores</a></li>
-            <li><a class="active" href="contacto.html">Contacto</a></li>
-        </ul>
-
-    </nav>
-
-    <!-- ENCABEZADO -->
-    <section class="header-contacto">
-
-        <h1>Contáctanos</h1>
-
-        <p>
-            Estamos disponibles para responder tus consultas
-            sobre nuestros cursos y programas.
-        </p>
-
-    </section>
-
-    <!-- FORMULARIO -->
-    <section class="contacto-container">
-
-        <form id="formularioContacto">
-
-            <div class="campo">
-                <label>Nombre Completo</label>
-                <input type="text" id="nombre">
-                <small id="errorNombre"></small>
-            </div>
-
-            <div class="campo">
-                <label>Correo Electrónico</label>
-                <input type="email" id="correo">
-                <small id="errorCorreo"></small>
-            </div>
-
-            <div class="campo">
-                <label>Teléfono</label>
-                <input type="text" id="telefono">
-                <small id="errorTelefono"></small>
-            </div>
-
-            <div class="campo">
-                <label>Asunto</label>
-                <input type="text" id="asunto">
-                <small id="errorAsunto"></small>
-            </div>
-
-            <div class="campo">
-                <label>Mensaje</label>
-                <textarea id="mensaje" rows="5"></textarea>
-                <small id="errorMensaje"></small>
-            </div>
-
-            <button type="submit" id="btnEnviar" disabled>
-                Enviar Mensaje
-            </button>
-
-        </form>
-
-        <div id="mensajeExito"></div>
-
-    </section>
-
-    <!-- INFORMACIÓN -->
-    <section class="info-contacto">
-
-        <h2>Información de Contacto</h2>
-
-        <p><strong>Dirección:</strong> San José, Costa Rica</p>
-
-        <p><strong>Teléfono:</strong> +506 2222-3333</p>
-
-        <p><strong>Correo:</strong> info@technovaacademy.com</p>
-
-    </section>
-
-    <!-- MAPA -->
-    <section class="mapa">
-
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.741912760559!2d-84.090724!3d9.932543"
-            width="100%"
-            height="400"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy">
-        </iframe>
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-
-        <h3>TechNova Academy</h3>
-
-        <div class="social">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
+        <div class="campo">
+            <label>Correo Electrónico</label>
+            <input type="email" name="correo" required>
         </div>
 
-        <p>
-            Desarrollado para Ambiente Web Cliente Servidor
-            - Universidad Fidélitas
-        </p>
+        <div class="campo">
+            <label>Mensaje</label>
+            <textarea name="mensaje" rows="5" required></textarea>
+        </div>
 
-    </footer>
+        <button type="submit">
+            Enviar Mensaje
+        </button>
 
-    <script src="js/contacto.js"></script>
+    </form>
 
-</body>
+</section>
 
-</html>
+<section class="info-contacto">
+
+    <h2>Información de Contacto</h2>
+
+    <p class="subtitulo">
+        Estamos para ayudarte. Puedes comunicarte con nosotros mediante cualquiera
+        de los siguientes medios.
+    </p>
+
+    <div class="contacto-grid">
+
+        <div class="contacto-card">
+
+            <div class="icono">📍</div>
+
+            <h3>Dirección</h3>
+
+            <p>
+                Universidad Fidélitas<br>
+                San Pedro, San José<br>
+                Costa Rica
+            </p>
+
+        </div>
+
+        <div class="contacto-card">
+
+            <div class="icono">📞</div>
+
+            <h3>Teléfono</h3>
+
+            <p>
+                (+506) 2222-3333
+            </p>
+
+            <small>
+                Lunes a Viernes<br>
+                8:00 a.m. - 6:00 p.m.
+            </small>
+
+        </div>
+
+        <div class="contacto-card">
+
+            <div class="icono">📧</div>
+
+            <h3>Correo</h3>
+
+            <p>
+                info@technovaacademy.com
+            </p>
+
+            <small>
+                Respondemos en menos de 24 horas.
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="mapa">
+
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.0009541903464!2d-84.03759952425393!3d9.933877674167526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e3f47ea4ff37%3A0x7a7818a6a9e5c90c!2sUniversidad%20Fid%C3%A9litas!5e0!3m2!1ses!2scr!4v1783633636110!5m2!1ses!2scr"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
+
+</section>
+
+<?php require_once "views/layout/footer.php"; ?>

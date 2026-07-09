@@ -1,86 +1,108 @@
-<h2>
-Editar Curso
-</h2>
+<?php require_once "views/layout/header.php"; ?>
 
+<div class="container mt-5">
 
+    <div class="card shadow">
 
-<form method="POST"
-action="index.php?controller=index&action=update"
-enctype="multipart/form-data">
+        <div class="card-header bg-dark text-white">
+            <h2 class="mb-0">✏️ Editar Curso</h2>
+        </div>
 
+        <div class="card-body">
 
-<input type="hidden"
-name="id"
-value="<?= $curso['id']; ?>">
+            <form method="POST"
+                  action="index.php?controller=index&action=update"
+                  enctype="multipart/form-data">
 
+                <input type="hidden"
+                       name="id"
+                       value="<?= $curso['id']; ?>">
 
+                <input type="hidden"
+                       name="imagen_actual"
+                       value="<?= htmlspecialchars($curso['imagen']); ?>">
 
-<label>
-Nombre
-</label>
+                <div class="mb-3">
 
-<input type="text"
-name="nombre"
-value="<?= $curso['nombre']; ?>">
+                    <label class="form-label">
+                        Nombre del Curso
+                    </label>
 
+                    <input class="form-control"
+                           type="text"
+                           name="nombre"
+                           value="<?= htmlspecialchars($curso['nombre']); ?>"
+                           required>
 
+                </div>
 
-<label>
-Descripción
-</label>
+                <div class="mb-3">
 
+                    <label class="form-label">
+                        Descripción
+                    </label>
 
-<textarea name="descripcion">
+                    <textarea class="form-control"
+                              rows="5"
+                              name="descripcion"
+                              required><?= htmlspecialchars($curso['descripcion']); ?></textarea>
 
-<?= $curso['descripcion']; ?>
+                </div>
 
-</textarea>
+                <div class="mb-3 text-center">
 
+                    <label class="form-label d-block">
+                        Imagen Actual
+                    </label>
 
+                    <img src="img/curso/<?= htmlspecialchars($curso['imagen']); ?>"
+                         class="img-fluid rounded shadow"
+                         style="max-width:250px;">
 
-<label>
-Imagen actual
-</label>
+                </div>
 
-<br>
+                <div class="mb-3">
 
-<img
-src="img/curso/<?= htmlspecialchars($curso['imagen']); ?>"
-width="180"
-alt="Imagen del curso">
+                    <label class="form-label">
+                        Nueva Imagen (Opcional)
+                    </label>
 
-<br><br>
+                    <input class="form-control"
+                           type="file"
+                           name="imagen"
+                           accept=".jpg,.jpeg,.png">
 
-<input
-type="hidden"
-name="imagen_actual"
-value="<?= htmlspecialchars($curso['imagen']); ?>">
+                </div>
 
-<label>
-Seleccionar nueva imagen (opcional)
-</label>
+                <div class="mb-4">
 
-<input
-type="file"
-name="imagen"
-accept=".jpg,.jpeg,.png">
+                    <label class="form-label">
+                        Categoría
+                    </label>
 
+                    <input class="form-control"
+                           type="text"
+                           name="categoria"
+                           value="<?= htmlspecialchars($curso['categoria']); ?>"
+                           required>
 
+                </div>
 
-<label>
-Categoría
-</label>
+                <button class="btn btn-success">
+                    💾 Guardar Cambios
+                </button>
 
+                <a href="index.php?controller=index&action=index"
+                   class="btn btn-secondary">
+                    Cancelar
+                </a>
 
-<input type="text"
-name="categoria"
-value="<?= $curso['categoria']; ?>">
+            </form>
 
+        </div>
 
+    </div>
 
-<button type="submit">
-Actualizar
-</button>
+</div>
 
-
-</form>
+<?php require_once "views/layout/footer.php"; ?>

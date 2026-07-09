@@ -1,122 +1,68 @@
-<!DOCTYPE html>
-<html lang="es">
+<?php require_once "views/layout/header.php"; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profesores - TechNova Academy</title>
+<section class="header-profesores">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/profesores.css">
-</head>
+    <h1>Nuestro Equipo de Profesores</h1>
 
-<body>
+    <p>
+        Conoce a los profesionales que imparten nuestros cursos
+        y ayudan a formar el talento tecnológico del futuro.
+    </p>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
+</section>
 
-        <div class="logo">
-            <h2>TechNova Academy</h2>
-        </div>
+<section class="profesores-grid">
 
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
-            <li><a class="active" href="profesores.html">Profesores</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
+<?php foreach($profesores as $profesor): ?>
 
-    </nav>
+    <div class="perfil-profesor">
 
-    <!-- ENCABEZADO -->
-    <section class="header-profesores">
+        <img src="<?= $profesor['imagen']; ?>" alt="<?= $profesor['nombre']; ?>">
 
-        <h1>Nuestro Equipo de Profesores</h1>
+        <h3><?= $profesor['nombre']; ?></h3>
 
-        <p>
-            Conoce a los profesionales que imparten nuestros cursos
-            y ayudan a formar el talento tecnológico del futuro.
-        </p>
+        <p><?= $profesor['especialidad']; ?></p>
 
-    </section>
-
-    <!-- PROFESORES DINÁMICOS -->
-    <section>
-
-        <div id="listaProfesores" class="profesores-grid"></div>
-
-    </section>
-
-    <!-- MISIÓN Y VISIÓN -->
-    <section class="mision-vision">
-
-        <div class="mision">
-
-            <h2>Misión</h2>
-
-            <p>
-                Brindar educación tecnológica de calidad,
-                desarrollando habilidades prácticas para el mercado laboral.
-            </p>
-
-        </div>
-
-        <div class="vision">
-
-            <h2>Visión</h2>
-
-            <p>
-                Ser la academia líder en formación tecnológica
-                e innovación digital en Latinoamérica.
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- MODAL -->
-    <div id="modalProfesor" class="modal">
-
-        <div class="modal-contenido">
-
-            <span id="cerrarModal">&times;</span>
-
-            <img id="modalFoto" src="" alt="Profesor">
-
-            <h2 id="modalNombre"></h2>
-
-            <p id="modalEspecialidad"></p>
-
-            <p id="modalDescripcion"></p>
-
-            <p id="modalCorreo"></p>
-
-            <p id="modalCursos"></p>
-
-        </div>
+        <a href="index.php?controller=profesores&action=show&id=<?= $profesor['id']; ?>" class="btn">
+            Ver Perfil
+        </a>
 
     </div>
 
-    <!-- FOOTER -->
-    <footer>
+<?php endforeach; ?>
 
-        <h3>TechNova Academy</h3>
+<section class="mision-vision">
 
-        <div class="social">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-        </div>
+    <div class="info-card">
+
+        <div class="icono">🎯</div>
+
+        <h2>Misión</h2>
 
         <p>
-            Desarrollado para Ambiente Web Cliente Servidor
-            - Universidad Fidélitas
+            Formar profesionales altamente capacitados mediante programas
+            innovadores en desarrollo de software, bases de datos,
+            ciberseguridad y tecnologías emergentes, impulsando el aprendizaje
+            práctico y el crecimiento profesional.
         </p>
 
-    </footer>
+    </div>
 
-    <script src="js/profesores.js"></script>
+    <div class="info-card">
 
-</body>
+        <div class="icono">🚀</div>
 
-</html>
+        <h2>Visión</h2>
+
+        <p>
+            Ser la academia tecnológica líder en Latinoamérica,
+            reconocida por la excelencia académica, la innovación
+            y la formación de profesionales preparados para afrontar
+            los retos del mundo digital.
+        </p>
+
+    </div>
+
+</section>
+
+<?php require_once "views/layout/footer.php"; ?>
